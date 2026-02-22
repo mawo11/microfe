@@ -1,0 +1,13 @@
+<header class="menu">
+  <div class="logo">{{ title}}</div>
+
+  <nav class="links">
+    @for (item of menuStore.getMenuItems(); track item)
+    {
+      <a href="{{item.url}}">{{item.name}}</a>
+    }
+    
+  </nav>
+
+    <button class="profile" (click)="sessionStore.logout()">Wyloguj</button>
+</header>

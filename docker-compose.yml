@@ -1,0 +1,71 @@
+services:
+  fe-dashboard:
+    build:
+      context: ./fe/dashboard
+      dockerfile: Dockerfile
+    container_name: testpl-fe-dashboard
+    ports:
+      - "5300:8080"
+    expose:
+      - "5300"
+    networks:
+      - testpl
+  be-configuration-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Configuration.Api/Dockerfile
+    container_name: testpl-be-configuration-api
+    ports:
+      - "5101:5101"
+    expose:
+      - "5101"
+    networks:
+      - testpl
+  be-auth-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Auth.Service/Dockerfile
+    container_name: testpl-be-auth-api
+    ports:
+      - "5201:5201"
+    expose:
+      - "5201"
+    networks:
+      - testpl
+  be-portal-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Portal.Service/Dockerfile
+    container_name: testpl-be-portal-api
+    ports:
+      - "5202:5202"
+    expose:
+      - "5202"
+    networks:
+      - testpl
+  be-profile-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Profile.Services/Dockerfile
+    container_name: testpl-be-profile-api
+    ports:
+      - "5203:5203"
+    expose:
+      - "5203"
+    networks:
+      - testpl
+  fe-gateway-service:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Gateway.Service/Dockerfile
+    container_name: testpl-fe-gateway-service
+    ports:
+      - "5100:5100"
+    expose:
+      - "5100"
+    networks:
+      - testpl
+
+networks:
+  testpl:
+    driver: bridge

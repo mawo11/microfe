@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Mawo.Portal.Service": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5202",
+      "hotReloadEnabled": true
+    }
+  }
+}

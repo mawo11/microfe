@@ -416,3 +416,8 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+_tmp/
+node_modules/
+.angular/
+dist/

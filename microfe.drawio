@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.2">
+  <diagram name="Strona-1" id="lHvj-2jOkxaP218b-K81">
+    <mxGraphModel dx="1426" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tjLdxxHrbIraUEcEoIGl-2" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/app_services/App_Service_Domains.svg;" value="" vertex="1">
+          <mxGeometry height="55.00000000000001" width="68" x="480" y="283.5" as="geometry" />
+        </mxCell>
+        <mxCell id="tjLdxxHrbIraUEcEoIGl-3" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/app_services/App_Service_Domains.svg;" value="" vertex="1">
+          <mxGeometry height="55.00000000000001" width="68" x="480" y="437" as="geometry" />
+        </mxCell>
+        <mxCell id="tjLdxxHrbIraUEcEoIGl-4" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/app_services/App_Service_Domains.svg;" value="" vertex="1">
+          <mxGeometry height="55.00000000000001" width="68" x="480" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="tjLdxxHrbIraUEcEoIGl-5" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/app_services/App_Service_Domains.svg;" value="" vertex="1">
+          <mxGeometry height="55.00000000000001" width="68" x="480" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="tjLdxxHrbIraUEcEoIGl-11" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Load_Balancers.svg;" value="" vertex="1">
+          <mxGeometry height="72" width="72" x="300" y="433" as="geometry" />
+        </mxCell>
+        <mxCell id="tjLdxxHrbIraUEcEoIGl-13" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/web/API_Center.svg;" value="" vertex="1">
+          <mxGeometry height="68" width="68" x="40" y="277" as="geometry" />
+        </mxCell>
+        <mxCell id="tjLdxxHrbIraUEcEoIGl-14" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/web/API_Center.svg;" value="" vertex="1">
+          <mxGeometry height="68" width="68" x="40" y="437" as="geometry" />
+        </mxCell>
+        <mxCell id="tjLdxxHrbIraUEcEoIGl-15" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/web/API_Center.svg;" value="" vertex="1">
+          <mxGeometry height="68" width="68" x="30" y="612" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/BE/">
+    <Project Path="Mawo.Auth.Service/Mawo.Auth.Service.csproj" />
+    <Project Path="Mawo.Configuration.Api.Client/Mawo.Configuration.Api.Client.csproj" Id="03319f98-aa45-4930-9c95-13c161a799f2" />
+    <Project Path="Mawo.Configuration.Api/Mawo.Configuration.Api.csproj" Id="a9ad18a4-719e-4d70-b6b5-389b00d1f539" />
+    <Project Path="Mawo.Portal.Service/Mawo.Portal.Service.csproj" />
+    <Project Path="Mawo.Profile.Services/Mawo.Profile.Services.csproj" />
+  </Folder>
+  <Project Path="Mawo.Gateway.Service/Mawo.Gateway.Service.csproj" />
+</Solution>
