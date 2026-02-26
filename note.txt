@@ -1,0 +1,88 @@
+ng new common --standalone --style=scss
+ng add @angular-architects/native-federation
+ng g c top-menu --standalone
+ng g c footer --standalone
+ng add @angular-architects/native-federation
+ng add @ngrx/signals@latest
+
+--------
+ng new dashboard --standalone --routing --style=scss
+ng add @angular-architects/native-federation --type dynamic-host
+npm install @oxc-parser/binding-win32-x64-msvc
+
+wc
+npm i @angular/elements 
+npm i @angular/platform-browser-dynami
+
+-- apka: common
+ng new common --standalone --style=scss
+npm i @ngrx/signals
+npm i @angular/elements
+
+-- apka: dashboard
+ng new dashboard --standalone --routing --style=scss
+npm i @ngrx/signals
+
+-- apka: profile
+npm create vue@latest
+
+
+----------------
+gateway 
+   -api/auth
+   -api/common
+   -api/timeline
+   -api/profile
+   -api/dashboard
+   
+   
+   sso
+   sso/api
+   dashboard
+   dashboard/api
+   timeline
+   timeline/api
+   profile
+   profile/api
+   more
+   more/api
+
+--
+krok
+1) implementacja profilu
+2) implmeentacja feature flag
+3) komunikajca fe -> externeal kontrol
+4) komunikajca externeal kontrol -> fe
+5) konteneryzacja fe 
+6) dokumentacj
+
+
+
+dobra api juz mam, teraz zabezpieczenia na angularze 
+a potem zrobic 
+a moze zamiast zrobic w koncu te logowanie po stronei fe i zrobic test i spiac to wsyzstko do kupe?
+
+-- 
+implementacja timeline, timeline2
+//feature flag w gw 
+-- 
+implementacja gw z api (dwa kontenery)
+
+-- 
+implementacja gw feature flag
+-- koniec testu :)	 
+
+jak do konca tygodnia uda mi sie zrobic ten test to moze sie uda 
+
+
+2) potem tiemline
+3) potem more 
+4) sso i logwanie 
+123 podpieie pod  
+
+
+architektura 
+  angular 
+  api 
+  obserwalnosc
+  

@@ -5,13 +5,14 @@ using System.Text;
 
 internal static class JwtFactory
 {
-	public static string CreateAccessToken(JwtOptions opt, int userId, string email, string[] roles, int minutes)
+	public static string CreateAccessToken(JwtOptions opt, int userId, string email, string[] roles, int minutes, string? featureFlag)
 	{
 		var claims = new List<Claim>
 		{
 			new(JwtRegisteredClaimNames.Sub, userId.ToString()),
 			new(ClaimTypes.Email, email),
-			new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+			new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+			new("feature", featureFlag?? string.Empty)
 		};
 		claims.AddRange(roles.Select(r => new Claim(ClaimTypes.Role, r)));
 
@@ -44,7 +45,7 @@ internal static class JwtFactory
 				ValidateIssuer = true,
 				ValidateAudience = true,
 				ValidateLifetime = true,
-				ClockSkew = TimeSpan.FromSeconds(10)
+				ClockSkew = TimeSpan.FromHours(1)
 			}, out _);
 		}
 		catch { return null; }

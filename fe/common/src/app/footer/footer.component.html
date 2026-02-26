@@ -1,3 +1,22 @@
-<footer>
-  Właściciel: mawo
-</footer>
+ <footer class="footer">
+      <div class="footer__glow"></div>
+      <div class="footer__inner">
+        <div class="footer__brand-col">
+          <span class="footer__logo">◈</span>
+          <span class="footer__brand-name">{{ brand }}</span>
+          <span class="footer__tagline">{{ tagline }}</span>
+        </div>
+
+        <nav class="footer__nav">
+          <a *ngFor="let link of parsedLinks" [href]="link.href" class="footer__link">
+            {{ link.label }}
+          </a>
+        </nav>
+
+        <div class="footer__meta">
+          <span class="footer__copy">© {{ year }} {{ brand }}</span>
+          <span class="footer__built">Built with Angular Elements</span>
+        </div>
+      </div>
+      <div class="footer__line"></div>
+    </footer>

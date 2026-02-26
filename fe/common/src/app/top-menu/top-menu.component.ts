@@ -1,17 +1,22 @@
 import { Component, computed, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuStore } from '../store/menuStore';
-import { SessionStore } from '../store/SessionStore';
+import { ExtraItem } from '../models';
+import { MenuStore } from '../store/menu.store';
+import { SessionStore } from '../store/session.store';
 
 @Component({
   selector: 'app-top-menu',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './top-menu.component.html',
-  styleUrl: './top-menu.component.scss'
+  styleUrl: './top-menu.component.scss',
+  providers: [MenuStore, SessionStore]
 })
 export class TopMenuComponent {
-  @Input() title: string = 'Top Menux';
+  @Input() title: string = 'My App';
+  @Input('extra-items') extraItems: string | ExtraItem[] = '';
+
+  parsedExtraItems: ExtraItem[] = [];
 
   menuStore = inject(MenuStore);
   sessionStore = inject(SessionStore);
@@ -20,7 +25,20 @@ export class TopMenuComponent {
     this.menuStore.loadMenu();
   }
 
-  get menuItems() {
-    return this.menuStore.getMenuItems();
-  }  
+  ngOnChanges(): void {
+    if (this.extraItems) {
+      if (typeof this.extraItems === 'string') {
+        try {
+          this.parsedExtraItems = JSON.parse(this.extraItems);
+        } catch {
+        }
+      } else if (Array.isArray(this.extraItems)) {
+        this.parsedExtraItems = this.extraItems;
+      }
+    }
+  }
+
+  logout() {
+    this.sessionStore.logout();
+  }
 }

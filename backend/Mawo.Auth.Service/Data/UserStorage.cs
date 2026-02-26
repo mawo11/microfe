@@ -15,7 +15,8 @@ public static class UserStorage
 			 Email = "test2@test.pl",
 			 Password = "Test1234",
 			Name = "Uzytkownik 2",
-			 Role = "Worker"
+			 Role = "Worker",
+			 Feature = "TimelineV2"
 		 }
 		];
 }

@@ -6,23 +6,19 @@ namespace Mawo.Gateway.Service.Proxy;
 
 public sealed class FeatureLoadBalancingPolicy : ILoadBalancingPolicy
 {
-	public string Name => "JwtFeature";
+	public string Name => "FeatureLoadBalancingPolicy";
 
 	public DestinationState? PickDestination(HttpContext context, ClusterState cluster, IReadOnlyList<DestinationState> availableDestinations)
 	{
-		// availableDestinations zawiera np. v1 i v2, które są zdrowe
-
 		var user = context.User;
 		if (user?.Identity?.IsAuthenticated != true)
 		{
-			// jak brak auth, default
 			return availableDestinations.FirstOrDefault();
 		}
 
-		bool useV2 = HasFeature(user, "UseV2");
+		bool useV2 = HasFeature(user, "TimelineV2");
 
-		// Szukamy konkretnych destination po nazwie
-		var targetId = useV2 ? "v2" : "v1";
+		var targetId = useV2 ? "TimelineV2" : "default";
 
 		var chosen = availableDestinations.FirstOrDefault(d =>
 			string.Equals(d.DestinationId, targetId, StringComparison.OrdinalIgnoreCase));

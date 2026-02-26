@@ -14,4 +14,6 @@ public class User
 	public string? Password { get; set; }
 
 	public string? Role { get; set; }
+
+	public string? Feature { get; set; }
 }

@@ -30,8 +30,16 @@
         "default": {
           "Address": "http://localhost:4203/"
         },
-        "newtimeline": {
+        "TimelineV2": {
           "Address": "http://localhost:4204/"
+        }
+      }
+    },
+    {
+      "ClusterId": "fe_profile",
+      "Destinations": {
+        "default": {
+          "Address": "http://localhost:4205/"
         }
       }
     },
@@ -55,7 +63,7 @@
       "ClusterId": "api_profile",
       "Destinations": {
         "default": {
-          "Address": "http://localhost:5203"
+          "Address": "http://localhost:5205"
         }
       }
     },
@@ -75,7 +83,10 @@
       "Match": {
         "Path": "/fe/common/{*any}"
       },
-      "AuthorizationPolicy": "RequireJwt"
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
     },
     {
       "RouteId": "fe_dashboard",
@@ -83,16 +94,29 @@
       "Match": {
         "Path": "/dashboard/{*any}"
       },
+      "AuthorizationPolicy": "RequireJwt",
       "Metadata": {
         "authMode": "header"
       }
     },
     {
-      "RouteId": "portal",
-      "ClusterId": "fe_portal",
+      "RouteId": "fe_profile",
+      "ClusterId": "fe_profile",
       "Match": {
-        "Path": "/portal/{*any}"
+        "Path": "/profile/{*any}"
       },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+    {
+      "RouteId": "fe_timeline",
+      "ClusterId": "fe_timeline",
+      "Match": {
+        "Path": "/timeline/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
       "Metadata": {
         "authMode": "header"
       }
@@ -109,14 +133,14 @@
     },
 
     {
-      "RouteId": "api_auth_login",
+      "RouteId": "api_auth_test",
       "ClusterId": "api_auth",
       "Match": {
         "Path": "/api/auth/test"
       }
     },
     {
-      "RouteId": "api_auth_test",
+      "RouteId": "api_auth_login",
       "ClusterId": "api_auth",
       "Match": {
         "Path": "/api/auth/login"

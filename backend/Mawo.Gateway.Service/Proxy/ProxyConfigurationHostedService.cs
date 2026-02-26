@@ -45,6 +45,7 @@ public sealed partial class ProxyConfigurationHostedService : BackgroundService
 					.Select(x => new ClusterConfig
 					{
 						ClusterId = x.ClusterId!,
+						LoadBalancingPolicy= "FeatureLoadBalancingPolicy",
 						Destinations = x.Destinations
 						 .ToDictionary(x=>x.Key, x=> new DestinationConfig
 						 {

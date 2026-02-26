@@ -53,7 +53,7 @@ app.MapPost("/api/auth/login", async (
 		return Results.Unauthorized();
 	}
 
-	var access = JwtFactory.CreateAccessToken(jwt, user.Id, request.Email, [user.Role!], minutes: 10);
+	var access = JwtFactory.CreateAccessToken(jwt, user.Id, request.Email, [user.Role!], minutes: 10, user.Feature);
 	var refresh = TokenFactory.GenerateRefreshToken();
 
 	await store.StoreAsync(user.Id, refresh);
@@ -91,7 +91,7 @@ app.MapPost("/api/auth/refresh", async (IRefreshTokenStore store, JwtOptions jwt
 	}
 
 
-	var access = JwtFactory.CreateAccessToken(jwt, userId, user.Email!, [user.Role!], minutes: 10);
+	var access = JwtFactory.CreateAccessToken(jwt, userId, user.Email!, [user.Role!], minutes: 10, user.Feature);
 	var newRefresh = TokenFactory.GenerateRefreshToken();
 	await store.StoreAsync(userId, newRefresh);
 

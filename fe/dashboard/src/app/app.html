@@ -1,6 +1,8 @@
-@if(sessionStorage.isLoggedIn())
-{
-<ng-container #menu></ng-container>
+<uix-top-menu
+  [attr.title]="appTitle"
+  [attr.extra-items]="navItemsJson"
+></uix-top-menu>
 
-<a (click)="sayHelLo()">Hello</a> asdf
-}
+dashboard works!
+
+<uix-footer></uix-footer>

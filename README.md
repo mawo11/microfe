@@ -11,3 +11,13 @@
         │
         ▼
   Dynamic reload (ChangeToken)
+
+
+
+
+
+
+
+problemy
+  remote i host ten sam angular -> jednoczesna publikacja 
+  remote i host rozne angular -> web compoentn

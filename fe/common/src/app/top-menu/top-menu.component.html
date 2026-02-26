@@ -1,13 +1,18 @@
-<header class="menu">
-  <div class="logo">{{ title}}</div>
+<nav class="top-menu">
+  <div class="top-menu__brand">
+    <span class="top-menu__logo">◈</span>
+    <span class="top-menu__title">{{ title }} co to jest?</span>
+  </div>
+  <ul class="top-menu__links">
+    <li *ngFor="let item of menuStore.getMenuItems()">
+      <a [href]="item.url" class="top-menu__link">{{ item.name }}</a>
+    </li>
+  </ul>
+  <ul class="top-menu__links">
+    <li *ngFor="let item of parsedExtraItems">
+      <a [href]="item.href" class="top-menu__link">{{ item.label }}</a>
+    </li>
+  </ul>
 
-  <nav class="links">
-    @for (item of menuStore.getMenuItems(); track item)
-    {
-      <a href="{{item.url}}">{{item.name}}</a>
-    }
-    
-  </nav>
-
-    <button class="profile" (click)="sessionStore.logout()">Wyloguj</button>
-</header>
+  <button class="profile" (click)="logout()">Wyloguj</button>
+</nav>
