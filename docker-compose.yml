@@ -133,7 +133,7 @@ services:
     networks:
       - testpl
     environment:
-      - Endpoints__ApiConfigurationUrl=http://be-configuration-apihttp://localhost:5101
+      - Endpoints__ApiConfigurationUrl=http://be-configuration-api:5101
       - Endpoints__AuthServiceUrl=http://be-auth-api:5201 
 
 networks:
