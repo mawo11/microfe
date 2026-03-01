@@ -14,7 +14,7 @@ app.UseSwaggerUI();
 
 app.MapGet("/gateway-config", () =>
 {
-	var content = File.ReadAllText("gw_dew.json");
+	var content = File.ReadAllText("gw_docker.json");
 
 	var config = System.Text.Json.JsonSerializer.Deserialize<ReverseProxyConfig>(content);
 

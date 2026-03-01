@@ -1,0 +1,229 @@
+﻿{
+  "Clusters": [
+    {
+      "ClusterId": "fe_common",
+      "Destinations": {
+        "default": {
+          "Address": "http://fe-common:4200/"
+        }
+      }
+    },
+    {
+      "ClusterId": "fe_dashboard",
+      "Destinations": {
+        "default": {
+          "Address": "http://fe-dashboard:4201/"
+        }
+      }
+    },
+    {
+      "ClusterId": "fe_sso",
+      "Destinations": {
+        "default": {
+          "Address": "http://fe-sso:4202/"
+        }
+      }
+    },
+    {
+      "ClusterId": "fe_timeline",
+      "Destinations": {
+        "default": {
+          "Address": "http://fe-timeline:4203/"
+        },
+        "TimelineV2": {
+          "Address": "http://fe-timeline2:4204/"
+        }
+      }
+    },
+    {
+      "ClusterId": "fe_profile",
+      "Destinations": {
+        "default": {
+          "Address": "http://fe-profile:4205/"
+        }
+      }
+    },
+    {
+      "ClusterId": "api_auth",
+      "Destinations": {
+        "default": {
+          "Address": "http://be-auth-api:5201"
+        }
+      }
+    },
+    {
+      "ClusterId": "api_timeline",
+      "Destinations": {
+        "default": {
+          "Address": "http://be-timeline-api:5202"
+        }
+      }
+    },
+    {
+      "ClusterId": "api_profile",
+      "Destinations": {
+        "default": {
+          "Address": "http://be-profile-api:5203"
+        }
+      }
+    },
+    {
+      "ClusterId": "api_config",
+      "Destinations": {
+        "default": {
+          "Address": "http://be-configuration-api:5101"
+        }
+      }
+    },
+    {
+      "ClusterId": "api_dashboard",
+      "Destinations": {
+        "default": {
+          "Address": "http://be-dashboard-api:5204"
+        }
+      }
+    }
+  ],
+  "Routes": [
+    {
+      "RouteId": "fe_common",
+      "ClusterId": "fe_common",
+      "Match": {
+        "Path": "/common/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+    {
+      "RouteId": "fe_dashboard",
+      "ClusterId": "fe_dashboard",
+      "Match": {
+        "Path": "/dashboard/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+    {
+      "RouteId": "fe_timeline",
+      "ClusterId": "fe_timeline",
+      "Match": {
+        "Path": "/timeline/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+    {
+      "RouteId": "fe_profile",
+      "ClusterId": "fe_profile",
+      "Match": {
+        "Path": "/profile/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+    {
+      "RouteId": "sso",
+      "ClusterId": "fe_sso",
+      "Match": {
+        "Path": "/sso/{*any}"
+      },
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+
+    {
+      "RouteId": "api_auth_test",
+      "ClusterId": "api_auth",
+      "Match": {
+        "Path": "/api/auth/test"
+      }
+    },
+    {
+      "RouteId": "api_auth_login",
+      "ClusterId": "api_auth",
+      "Match": {
+        "Path": "/api/auth/login"
+      },
+      "Metadata": {
+        "authMode": "cookie"
+      }
+    },
+    {
+      "RouteId": "api_auth",
+      "ClusterId": "api_auth",
+      "Match": {
+        "Path": "/api/auth/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "cookie"
+      }
+    },
+    {
+      "RouteId": "api_timeline_test",
+      "ClusterId": "api_timeline",
+      "Match": {
+        "Path": "/api/timeline/test"
+      }
+    },
+    {
+      "RouteId": "api_timeline",
+      "ClusterId": "api_timeline",
+      "Match": {
+        "Path": "/api/timeline/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+    {
+      "RouteId": "api_profile_test",
+      "ClusterId": "api_profile",
+      "Match": {
+        "Path": "/api/profile/test"
+      }
+    },
+
+    {
+      "RouteId": "api_profile",
+      "ClusterId": "api_profile",
+      "Match": {
+        "Path": "/api/profile/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+
+    {
+      "RouteId": "api_dashboard",
+      "ClusterId": "api_dashboard",
+      "Match": {
+        "Path": "/api/dashboard/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+    {
+      "RouteId": "ApiCommonRoute",
+      "ClusterId": "api_config",
+      "Match": {
+        "Path": "/config/apps"
+      },
+      "AuthorizationPolicy": "RequireJwt"
+    }
+  ]
+}

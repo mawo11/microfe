@@ -66,8 +66,76 @@ services:
     networks:
       - testpl 
 
-  
-
+  be-configuration-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Configuration.Api/Dockerfile
+    container_name: testpl-be-configuration-api
+    ports:
+      - "5101:5101"
+    expose:
+      - "5101"
+    networks:
+      - testpl
+  be-auth-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Auth.Service/Dockerfile
+    container_name: testpl-be-auth-api
+    ports:
+      - "5201:5201"
+    expose:
+      - "5201"
+    networks:
+      - testpl
+  be-timeline-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Timeline.Service/Dockerfile
+    container_name: testpl-be-timeline-api
+    ports:
+      - "5202:5202"
+    expose:
+      - "5202"
+    networks:
+      - testpl
+  be-profile-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Profile.Service/Dockerfile
+    container_name: testpl-be-profile-api
+    ports:
+      - "5203:5203"
+    expose:
+      - "5203"
+    networks:
+      - testpl
+  be-dashboard-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Dashboard.Service/Dockerfile
+    container_name: testpl-be-dashboard-api
+    ports:
+      - "5204:5204"
+    expose:
+      - "5204"
+    networks:
+      - testpl 
+  fe-gateway-service:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Gateway.Service/Dockerfile
+    container_name: testpl-fe-gateway-service
+    ports:
+      - "5100:5100"
+    expose:
+      - "5100"
+    networks:
+      - testpl
+    environment:
+      - Endpoints__ApiConfigurationUrl=http://be-configuration-apihttp://localhost:5101
+      - Endpoints__AuthServiceUrl=http://be-auth-api:5201
+    
 networks:
   testpl:
     driver: bridge
