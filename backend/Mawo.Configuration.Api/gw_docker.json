@@ -4,7 +4,7 @@
       "ClusterId": "fe_common",
       "Destinations": {
         "default": {
-          "Address": "http://fe-common:4200/"
+          "Address": "http://fe-common:8080/"
         }
       }
     },
@@ -12,7 +12,7 @@
       "ClusterId": "fe_dashboard",
       "Destinations": {
         "default": {
-          "Address": "http://fe-dashboard:4201/"
+          "Address": "http://fe-dashboard:8080/"
         }
       }
     },
@@ -20,7 +20,7 @@
       "ClusterId": "fe_sso",
       "Destinations": {
         "default": {
-          "Address": "http://fe-sso:4202/"
+          "Address": "http://fe-sso:8080/"
         }
       }
     },
@@ -28,10 +28,10 @@
       "ClusterId": "fe_timeline",
       "Destinations": {
         "default": {
-          "Address": "http://fe-timeline:4203/"
+          "Address": "http://fe-timeline:8080/"
         },
         "TimelineV2": {
-          "Address": "http://fe-timeline2:4204/"
+          "Address": "http://fe-timeline2:8080/"
         }
       }
     },
@@ -39,7 +39,7 @@
       "ClusterId": "fe_profile",
       "Destinations": {
         "default": {
-          "Address": "http://fe-profile:4205/"
+          "Address": "http://fe-profile:8080/"
         }
       }
     },
@@ -47,7 +47,7 @@
       "ClusterId": "api_auth",
       "Destinations": {
         "default": {
-          "Address": "http://be-auth-api:5201"
+          "Address": "http://be-auth-api:8080"
         }
       }
     },
@@ -55,7 +55,7 @@
       "ClusterId": "api_timeline",
       "Destinations": {
         "default": {
-          "Address": "http://be-timeline-api:5202"
+          "Address": "http://be-timeline-api:8080"
         }
       }
     },
@@ -63,7 +63,7 @@
       "ClusterId": "api_profile",
       "Destinations": {
         "default": {
-          "Address": "http://be-profile-api:5203"
+          "Address": "http://be-profile-api:8080"
         }
       }
     },
@@ -71,7 +71,7 @@
       "ClusterId": "api_config",
       "Destinations": {
         "default": {
-          "Address": "http://be-configuration-api:5101"
+          "Address": "http://be-configuration-api:8080"
         }
       }
     },
@@ -79,7 +79,7 @@
       "ClusterId": "api_dashboard",
       "Destinations": {
         "default": {
-          "Address": "http://be-dashboard-api:5204"
+          "Address": "http://be-dashboard-api:8080"
         }
       }
     }
