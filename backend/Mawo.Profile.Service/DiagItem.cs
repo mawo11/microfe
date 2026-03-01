@@ -1,4 +1,4 @@
-﻿namespace Mawo.Profile.Services;
+﻿namespace Mawo.Profile.Service;
 
 public class DiagItem
 {

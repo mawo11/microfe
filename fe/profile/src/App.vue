@@ -12,7 +12,7 @@ const navItemsJson = JSON.stringify([
 const layout = ref<HTMLElement | null>(null)
 
 function handleAction(e: any) {
-  alert('profile event!', e)
+  alert('profile event!')
 }
 
 onMounted(() => {

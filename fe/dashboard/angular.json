@@ -29,10 +29,21 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "elements.js",
+                "input": "src/common",
+                "output": "/common"
               }
             ],
             "styles": [
               "src/styles.scss"
+            ],
+            "scripts": [
+              {
+                "input": "src/common/elements.js",
+                "inject": false
+              }
             ]
           },
           "configurations": {
@@ -63,8 +74,8 @@
           "builder": "@angular/build:dev-server",
           "options": {
             "port": 4201,
-						"proxyConfig": "proxy.conf.json",
-						"servePath": "/dashboard"
+            "proxyConfig": "proxy.conf.json",
+            "servePath": "/dashboard"
           },
           "configurations": {
             "production": {

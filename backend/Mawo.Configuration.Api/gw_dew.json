@@ -89,7 +89,7 @@
       "RouteId": "fe_common",
       "ClusterId": "fe_common",
       "Match": {
-        "Path": "/fe/common/{*any}"
+        "Path": "/common/{*any}"
       },
       "AuthorizationPolicy": "RequireJwt",
       "Metadata": {

@@ -6,7 +6,7 @@
     <Project Path="Mawo.Configuration.Api/Mawo.Configuration.Api.csproj" Id="a9ad18a4-719e-4d70-b6b5-389b00d1f539" />
     <Project Path="Mawo.Timeline.Service/Mawo.Timeline.Service.csproj" />
     <Project Path="Mawo.Dashboard.Service/Mawo.Dashboard.Service.csproj" />
-    <Project Path="Mawo.Profile.Services/Mawo.Profile.Services.csproj" />
+    <Project Path="Mawo.Profile.Service/Mawo.Profile.Service.csproj" />
   </Folder>
   <Project Path="Mawo.Gateway.Service/Mawo.Gateway.Service.csproj" />
 </Solution>

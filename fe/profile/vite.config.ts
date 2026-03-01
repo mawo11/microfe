@@ -7,6 +7,11 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vite.dev/config/
 export default defineConfig({
   base: '/profile/',
+   build: {
+    rollupOptions: {
+      external: ['/common/elements.js']
+    }
+  },
   plugins: [
     vue({
       template: {

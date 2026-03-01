@@ -1,4 +1,4 @@
-using Mawo.Profile.Services;
+using Mawo.Profile.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
