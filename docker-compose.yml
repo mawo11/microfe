@@ -16,9 +16,9 @@ services:
       dockerfile: Dockerfile
     container_name: testpl-fe-dashboard
     ports:
-      - "5300:8080"
+      - "4201:8080"
     expose:
-      - "5300"
+      - "4201"
     networks:
       - testpl
   fe-profile:
