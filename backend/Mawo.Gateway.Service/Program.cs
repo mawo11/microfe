@@ -57,7 +57,12 @@ builder.Services
 builder.Services.AddAuthorizationBuilder()
 	.AddPolicy("RequireJwt", policy => policy.RequireAuthenticatedUser());
 
-builder.Services.AddReverseProxy().LoadFromMemory([], []);
+builder.Services.AddReverseProxy()
+	.LoadFromMemory([], [])
+	.ConfigureHttpClient((context, handler) =>
+	{
+		handler.EnableMultipleHttp2Connections = false;
+	});
 
 builder.Services.AddSingleton<ITransformProvider, CorrelationIdTransformer>();
 builder.Services.AddSingleton<ITransformProvider, JwTokenTransformer>();

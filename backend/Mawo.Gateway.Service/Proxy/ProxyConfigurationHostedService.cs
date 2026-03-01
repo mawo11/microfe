@@ -1,5 +1,6 @@
 ﻿using Mawo.Configuration.Api.Client;
 using Yarp.ReverseProxy.Configuration;
+using Yarp.ReverseProxy.Forwarder;
 
 namespace Mawo.Gateway.Service.Proxy;
 
@@ -50,7 +51,13 @@ public sealed partial class ProxyConfigurationHostedService : BackgroundService
 						 .ToDictionary(x=>x.Key, x=> new DestinationConfig
 						 {
 							  Address =x.Value.Address
-						 })
+						 }),
+						HttpRequest = new ForwarderRequestConfig
+						{
+							Version = new Version(1, 1),
+							VersionPolicy = HttpVersionPolicy.RequestVersionOrLower
+						}
+
 					})];
 
 				_configProvider.Update(routes, clusters);
