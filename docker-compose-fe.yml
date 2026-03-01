@@ -1,0 +1,73 @@
+services:
+  fe-common:
+    build:
+      context: ./fe/common
+      dockerfile: Dockerfile
+    container_name: testpl-fe-common
+    ports:
+      - "4200:8080"
+    expose:
+      - "4200"
+    networks:
+      - testpl       
+  fe-dashboard:
+    build:
+      context: ./fe/dashboard
+      dockerfile: Dockerfile
+    container_name: testpl-fe-dashboard
+    ports:
+      - "5300:8080"
+    expose:
+      - "5300"
+    networks:
+      - testpl
+  fe-profile:
+    build:
+      context: ./fe/profile
+      dockerfile: Dockerfile
+    container_name: testpl-fe-profile
+    ports:
+      - "4205:8080"
+    expose:
+      - "4205"
+    networks:
+      - testpl 
+  fe-sso:
+    build:
+      context: ./fe/sso
+      dockerfile: Dockerfile
+    container_name: testpl-fe-sso
+    ports:
+      - "4202:8080"
+    expose:
+      - "4202"
+    networks:
+      - testpl 
+  fe-timeline:
+    build:
+      context: ./fe/timeline
+      dockerfile: Dockerfile
+    container_name: testpl-fe-timeline
+    ports:
+      - "4203:8080"
+    expose:
+      - "4203"
+    networks:
+      - testpl 
+  fe-timeline2:
+    build:
+      context: ./fe/timeline2
+      dockerfile: Dockerfile
+    container_name: testpl-fe-timeline2
+    ports:
+      - "4204:8080"
+    expose:
+      - "4204"
+    networks:
+      - testpl 
+
+  
+
+networks:
+  testpl:
+    driver: bridge
