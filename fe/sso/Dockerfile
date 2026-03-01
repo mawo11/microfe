@@ -2,12 +2,9 @@ FROM node:24-bookworm AS builder
 WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN --mount=type=cache,target=/root/.npm npm ci
-COPY . .
-RUN npm install
-RUN npm run build 
 FROM nginx:1.28.0-alpine3.21 AS runner
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --chown=nginx:nginx --from=builder /app/dist/*/browser /usr/share/nginx/html/sso
+COPY --chown=nginx:nginx /dist/*/browser /usr/share/nginx/html/sso
 USER nginx
 
 EXPOSE 8080

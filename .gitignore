@@ -420,4 +420,3 @@ FodyWeavers.xsd
 _tmp/
 node_modules/
 .angular/
-dist/
