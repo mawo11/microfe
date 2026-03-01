@@ -29,21 +29,13 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "elements.js",
-                "input": "src/common",
-                "output": "/common"
               }
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [
-              {
-                "input": "src/common/elements.js",
-                "inject": false
-              }
+              
             ]
           },
           "configurations": {
