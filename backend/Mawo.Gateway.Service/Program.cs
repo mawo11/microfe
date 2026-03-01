@@ -74,6 +74,7 @@ builder.Services.AddHttpClient<IApiProxyServiceClient, ApiProxyServiceClient>(cl
 builder.Services.AddHostedService<ProxyConfigurationHostedService>();
 builder.Services.AddTransient<TokenRefreshMiddleware>();
 builder.Services.AddTransient<CorrelationIdMiddleware>();
+builder.Services.AddTransient<RedirectionGuardMiddleware>();
 
 builder.Services.AddHttpClient<IAuthServiceClient, AuthServiceClient>(client =>
 {
@@ -84,6 +85,7 @@ var app = builder.Build();
 
 app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseMiddleware<TokenRefreshMiddleware>();
+app.UseMiddleware<RedirectionGuardMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
