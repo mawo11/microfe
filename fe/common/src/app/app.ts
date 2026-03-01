@@ -6,5 +6,4 @@ import { Component, signal } from '@angular/core';
   template:''
 })
 export class App {
-  protected readonly title = signal('common');
 }

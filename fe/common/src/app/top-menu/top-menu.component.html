@@ -1,7 +1,7 @@
 <nav class="top-menu">
   <div class="top-menu__brand">
     <span class="top-menu__logo">◈</span>
-    <span class="top-menu__title">{{ title }} co to jest?</span>
+    <span class="top-menu__title">Microfrontends</span> - <span class="top-menu__subtitle">{{ title }}</span>
   </div>
   <ul class="top-menu__links">
     <li *ngFor="let item of menuStore.getMenuItems()">
@@ -13,6 +13,6 @@
       <a [href]="item.href" class="top-menu__link">{{ item.label }}</a>
     </li>
   </ul>
-
+  <button (click)="onButtonClick()">Akcja</button>
   <button class="profile" (click)="logout()">Wyloguj</button>
 </nav>

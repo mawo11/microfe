@@ -52,7 +52,7 @@
       }
     },
     {
-      "ClusterId": "api_portal",
+      "ClusterId": "api_timeline",
       "Destinations": {
         "default": {
           "Address": "http://localhost:5202"
@@ -63,7 +63,7 @@
       "ClusterId": "api_profile",
       "Destinations": {
         "default": {
-          "Address": "http://localhost:5205"
+          "Address": "http://localhost:5203"
         }
       }
     },
@@ -72,6 +72,14 @@
       "Destinations": {
         "default": {
           "Address": "http://localhost:5101"
+        }
+      }
+    },
+    {
+      "ClusterId": "api_dashboard",
+      "Destinations": {
+        "default": {
+          "Address": "http://localhost:5204"
         }
       }
     }
@@ -100,10 +108,10 @@
       }
     },
     {
-      "RouteId": "fe_profile",
-      "ClusterId": "fe_profile",
+      "RouteId": "fe_timeline",
+      "ClusterId": "fe_timeline",
       "Match": {
-        "Path": "/profile/{*any}"
+        "Path": "/timeline/{*any}"
       },
       "AuthorizationPolicy": "RequireJwt",
       "Metadata": {
@@ -111,10 +119,10 @@
       }
     },
     {
-      "RouteId": "fe_timeline",
-      "ClusterId": "fe_timeline",
+      "RouteId": "fe_profile",
+      "ClusterId": "fe_profile",
       "Match": {
-        "Path": "/timeline/{*any}"
+        "Path": "/profile/{*any}"
       },
       "AuthorizationPolicy": "RequireJwt",
       "Metadata": {
@@ -161,17 +169,17 @@
       }
     },
     {
-      "RouteId": "api_portal_test",
-      "ClusterId": "api_portal",
+      "RouteId": "api_timeline_test",
+      "ClusterId": "api_timeline",
       "Match": {
-        "Path": "/api/portal/test"
+        "Path": "/api/timeline/test"
       }
     },
     {
-      "RouteId": "api_portal",
-      "ClusterId": "api_portal",
+      "RouteId": "api_timeline",
+      "ClusterId": "api_timeline",
       "Match": {
-        "Path": "/api/portal/{*any}"
+        "Path": "/api/timeline/{*any}"
       },
       "AuthorizationPolicy": "RequireJwt",
       "Metadata": {
@@ -185,11 +193,24 @@
         "Path": "/api/profile/test"
       }
     },
+
     {
       "RouteId": "api_profile",
       "ClusterId": "api_profile",
       "Match": {
         "Path": "/api/profile/{*any}"
+      },
+      "AuthorizationPolicy": "RequireJwt",
+      "Metadata": {
+        "authMode": "header"
+      }
+    },
+
+    {
+      "RouteId": "api_dashboard",
+      "ClusterId": "api_dashboard",
+      "Match": {
+        "Path": "/api/dashboard/{*any}"
       },
       "AuthorizationPolicy": "RequireJwt",
       "Metadata": {

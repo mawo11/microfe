@@ -3,6 +3,7 @@ using Mawo.Configuration.Api.Client;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddEnvironmentVariables();
 
 var jwtKey = builder.Configuration["Jwt:Key"]!;
 var jwtIssuer = builder.Configuration["Jwt:Issuer"]!;
@@ -72,7 +73,7 @@ app.MapPost("/api/auth/login", async (
 
 app.MapPost("/api/auth/refresh", async (IRefreshTokenStore store, JwtOptions jwt, HttpContext ctx) =>
 {
-	var refresh = ctx.Request.Cookies["refresh_token"];
+	var refresh = ctx.Request.Cookies["RefreshToken"];
 	if (string.IsNullOrWhiteSpace(refresh))
 	{
 		return Results.Unauthorized();

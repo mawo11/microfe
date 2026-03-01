@@ -1,34 +1,51 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
-const appTitle= 'Vue 3 app !!'
+const appTitle = 'Vue 3 app !!'
 
-const  navItemsJson = JSON.stringify([
-    { label: 'Vue 3',  href: 'https://vuejs.org/' }
-  ]);
+const navItemsJson = JSON.stringify([
+  { label: 'Vue 3', href: 'https://vuejs.org/' }
+]);
+
+const layout = ref<HTMLElement | null>(null)
+
+function handleAction(e: any) {
+  alert('profile event!', e)
+}
+
+onMounted(() => {
+  layout.value?.addEventListener('actionClick', handleAction)
+})
+
+onUnmounted(() => {
+  layout.value?.removeEventListener('actionClick', handleAction)
+})
+
 </script>
 
 <template>
-  <uix-top-menu
-    :title="appTitle"
-    :extra-items="navItemsJson"></uix-top-menu>
-  <div style="padding: 2rem">
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <uix-app-layout :menuTitle="appTitle" :menu-items="navItemsJson" ref="layout">
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div style="padding: 2rem">
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+      <div class="wrapper">
+        <HelloWorld msg="You did it!" />
+
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+        </nav>
+      </div>
     </div>
-  </div>
-  <div style="padding: 2rem">
-    <RouterView />
-  </div>
-  <uix-footer />
+    <div style="padding: 2rem">
+      <RouterView />
+    </div>
+
+  </uix-app-layout>
+
 </template>
 
 <style scoped>
@@ -61,4 +78,6 @@ nav a {
 nav a:first-of-type {
   border: 0;
 }
+
+
 </style>

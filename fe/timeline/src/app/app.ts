@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class App {
-   appTitle = 'UIX App';
+   appTitle = 'Timeline';
    navItemsJson = JSON.stringify([
     { label: 'lx',  href: '#x' }
   ]);

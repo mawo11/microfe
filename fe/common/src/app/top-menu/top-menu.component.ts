@@ -1,4 +1,4 @@
-import { Component, computed, inject, Input } from '@angular/core';
+import { Component, EventEmitter, Output, inject, Input, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExtraItem } from '../models';
 import { MenuStore } from '../store/menu.store';
@@ -15,13 +15,14 @@ import { SessionStore } from '../store/session.store';
 export class TopMenuComponent {
   @Input() title: string = 'My App';
   @Input('extra-items') extraItems: string | ExtraItem[] = '';
+  @Output() actionClick = new EventEmitter<any>();
 
   parsedExtraItems: ExtraItem[] = [];
 
   menuStore = inject(MenuStore);
   sessionStore = inject(SessionStore);
 
-  constructor() {
+  constructor(private elementRef: ElementRef) {
     this.menuStore.loadMenu();
   }
 
@@ -36,6 +37,16 @@ export class TopMenuComponent {
         this.parsedExtraItems = this.extraItems;
       }
     }
+  }
+
+  onButtonClick() {
+    this.elementRef.nativeElement.dispatchEvent(
+      new CustomEvent('actionClick', {
+        detail: { source: 'uix-top-menu' },
+        bubbles: true,
+        composed: true
+      })
+    );
   }
 
   logout() {

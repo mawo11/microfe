@@ -1,20 +1,17 @@
-﻿namespace Mawo.Gateway.Service;
+﻿namespace Mawo.Gateway.Service.MIddlewares;
 
-public sealed class CorrelationIdMiddleware
+public sealed class CorrelationIdMiddleware : IMiddleware
 {
 	public const string HeaderName = "X-Correlation-Id";
 
-	private readonly RequestDelegate _next;
-
-	public CorrelationIdMiddleware(RequestDelegate next)
-	{
-		_next = next;
-	}
-
 	public async Task Invoke(HttpContext context)
 	{
-		if (!context.Request.Headers.TryGetValue(HeaderName, out var correlationId) ||
-			string.IsNullOrWhiteSpace(correlationId))
+
+	}
+
+	public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+	{
+		if (!context.Request.Headers.TryGetValue(HeaderName, out var correlationId) || string.IsNullOrWhiteSpace(correlationId))
 		{
 			correlationId = Guid.NewGuid().ToString("N");
 			context.Request.Headers[HeaderName] = correlationId;
@@ -30,6 +27,6 @@ public sealed class CorrelationIdMiddleware
 			return Task.CompletedTask;
 		});
 
-		await _next(context);
+		await next(context);
 	}
 }

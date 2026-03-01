@@ -8,7 +8,13 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig({
   base: '/profile/',
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith('uix-')
+        }
+      }
+    }),
     vueDevTools(),
   ],
   server: {

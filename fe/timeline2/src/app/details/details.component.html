@@ -1,0 +1,16 @@
+<div class="dashboard" >
+    <h1>Timeline2 Details</h1>
+    <p>To jest strona z szczegółami dashboardu.</p>
+<button class="btn btn-primary" (click)="router.navigate(['/'])">Powrót do Home</button>
+
+    <table>
+        <tr>
+            <th>klucz</th>
+            <th>wartosc</th>
+        </tr>
+        <tr *ngFor="let item of dashboardStore.getDiagItems()">
+            <td>{{item.key}}</td>
+            <td >{{item.value}}</td>
+        </tr>
+    </table>
+</div>

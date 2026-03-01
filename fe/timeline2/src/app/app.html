@@ -1,11 +1,5 @@
-<uix-top-menu
-  [attr.title]="appTitle"
-  [attr.extra-items]="navItemsJson"
-></uix-top-menu>
-
-<div class="content">
-  
-timeline v2 works!
-</div>
-
-<uix-footer></uix-footer>
+<uix-app-layout
+  [menuTitle]="appTitle"
+  [menuItems]="navItemsJson">
+<router-outlet></router-outlet>
+</uix-app-layout>

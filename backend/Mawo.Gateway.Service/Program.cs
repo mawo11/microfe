@@ -1,5 +1,6 @@
+using Mawo.Auth.Service.Client;
 using Mawo.Configuration.Api.Client;
-using Mawo.Gateway.Service;
+using Mawo.Gateway.Service.MIddlewares;
 using Mawo.Gateway.Service.Proxy;
 using Mawo.Gateway.Service.RequestTransforms;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,6 +11,7 @@ using Yarp.ReverseProxy.Transforms.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddCors(opt =>
 {
 	opt.AddPolicy("Frontends", p =>
@@ -28,6 +30,13 @@ builder.Services
 			OnMessageReceived = ctx =>
 			{
 				ctx.Token = ctx.Request.Cookies["AuthToken"];
+				return Task.CompletedTask;
+			},
+			OnChallenge = context =>
+			{
+				context.HandleResponse();
+				context.Response.StatusCode = 302;
+				context.Response.Headers.Location = "http://localhost:5100/sso/";
 				return Task.CompletedTask;
 			}
 		};
@@ -58,13 +67,22 @@ builder.Services.AddHttpClient<IApiProxyServiceClient, ApiProxyServiceClient>(cl
 	client.BaseAddress = new Uri(builder.Configuration["Endpoints:ApiConfigurationUrl"]!);
 });
 builder.Services.AddHostedService<ProxyConfigurationHostedService>();
+builder.Services.AddTransient<TokenRefreshMiddleware>();
+builder.Services.AddTransient<CorrelationIdMiddleware>();
+
+builder.Services.AddHttpClient<IAuthServiceClient, AuthServiceClient>(client =>
+{
+	client.BaseAddress = new Uri(builder.Configuration["Endpoints:AuthServiceUrl"]!);
+});
 
 var app = builder.Build();
 
 app.UseMiddleware<CorrelationIdMiddleware>();
+app.UseMiddleware<TokenRefreshMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapReverseProxy();
 app.MapFallback(context =>
 {
@@ -75,4 +93,3 @@ app.MapFallback(context =>
 app.Map("/api/hello", () => "Mawo Gateway Service is running.");
 
 app.Run();
-// dobra dzisiaj zrobimy to i owo 

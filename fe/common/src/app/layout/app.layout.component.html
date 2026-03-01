@@ -1,0 +1,13 @@
+<div class="top">
+  <app-top-menu
+  [title]="menuTitle" 
+  [extra-items]="menuItems"  ></app-top-menu>
+</div>
+
+<div class="content">
+   <slot></slot>
+</div>
+
+<div class="bottom">
+  <app-footer></app-footer>
+</div>

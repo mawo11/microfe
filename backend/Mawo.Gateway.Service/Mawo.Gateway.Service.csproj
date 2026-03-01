@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mawo.Auth.Service.Client\Mawo.Auth.Service.Client.csproj" />
     <ProjectReference Include="..\Mawo.Configuration.Api.Client\Mawo.Configuration.Api.Client.csproj" />
   </ItemGroup>
 </Project>

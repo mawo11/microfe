@@ -1,8 +1,6 @@
-<uix-top-menu
-  [attr.title]="appTitle"
-  [attr.extra-items]="navItemsJson"
-></uix-top-menu>
-
-dashboard works!
-
-<uix-footer></uix-footer>
+<uix-app-layout
+  [menuTitle]="appTitle"
+  [menuItems]="navItemsJson"
+  (actionClick)="handleAction($event)">
+<router-outlet></router-outlet>
+</uix-app-layout>

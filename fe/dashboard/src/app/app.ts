@@ -9,8 +9,12 @@ import { RouterOutlet } from '@angular/router';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class App {
-   appTitle = 'UIX App';
+   appTitle = 'Dashboard';
    navItemsJson = JSON.stringify([
     { label: 'lx',  href: '#x' }
   ]);
+
+    handleAction(event: any) {
+      alert('dashboard action clicked:' + JSON.stringify(event.detail)  );
+    }
 }

@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .dashboard {
+    background: #1a1a2e;
+    text-align: center;
+    color: white;
+    flex: 1;
+  }
+
+  .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100ch;
+    /* 100 znaków */
+  }
+
+  table {
+    margin: auto;
+  }
+  table td:first-child {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;
+  }
+  table td:last-child {
+    text-align: left;
+    padding-left: 10px;
+  }
+}

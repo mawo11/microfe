@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .dashboard {
+    background: #1a1a2e;
+    text-align: center;
+    color: white;
+    flex: 1;
+  }
+
+}

@@ -32,11 +32,11 @@ services:
       - "5201"
     networks:
       - testpl
-  be-portal-api:
+  be-timeline-api:
     build:
       context: .
-      dockerfile: ./backend/Mawo.Portal.Service/Dockerfile
-    container_name: testpl-be-portal-api
+      dockerfile: ./backend/Mawo.Timeline.Service/Dockerfile
+    container_name: testpl-be-timeline-api
     ports:
       - "5202:5202"
     expose:
@@ -54,6 +54,17 @@ services:
       - "5203"
     networks:
       - testpl
+  be-dashboard-api:
+    build:
+      context: .
+      dockerfile: ./backend/Mawo.Dashboard.Services/Dockerfile
+    container_name: testpl-be-dashboard-api
+    ports:
+      - "5204:5204"
+    expose:
+      - "5204"
+    networks:
+      - testpl 
   fe-gateway-service:
     build:
       context: .
