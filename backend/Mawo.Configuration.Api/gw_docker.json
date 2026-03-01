@@ -47,7 +47,7 @@
       "ClusterId": "api_auth",
       "Destinations": {
         "default": {
-          "Address": "http://be-auth-api:8080"
+          "Address": "http://be-auth-api:5201"
         }
       }
     },
@@ -55,7 +55,7 @@
       "ClusterId": "api_timeline",
       "Destinations": {
         "default": {
-          "Address": "http://be-timeline-api:8080"
+          "Address": "http://be-timeline-api:5202"
         }
       }
     },
@@ -63,7 +63,7 @@
       "ClusterId": "api_profile",
       "Destinations": {
         "default": {
-          "Address": "http://be-profile-api:8080"
+          "Address": "http://be-profile-api:5203"
         }
       }
     },
@@ -71,7 +71,7 @@
       "ClusterId": "api_config",
       "Destinations": {
         "default": {
-          "Address": "http://be-configuration-api:8080"
+          "Address": "http://be-configuration-api:5101"
         }
       }
     },
@@ -79,7 +79,7 @@
       "ClusterId": "api_dashboard",
       "Destinations": {
         "default": {
-          "Address": "http://be-dashboard-api:8080"
+          "Address": "http://be-dashboard-api:5204"
         }
       }
     }
